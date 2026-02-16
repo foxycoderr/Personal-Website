@@ -1,13 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <title>BANAN!!</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Minimal portfolio" />
+  <title>Your Name — Portfolio</title>
+
+  <style>
+    /* Minimal B/W portfolio — single-file, fast, orthodox */
+    :root{
+      --bg: #0b0b0b;
+      --fg: #f5f5f5;
+      --muted: rgba(245,245,245,.72);
+      --hairline: rgba(245,245,245,.14);
+      --card: rgba(245,245,245,.04);
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1040px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      background: radial-gradient(1200px 600px at 15% 0%, rgba(255,255,255,.06), transparent 55%),
+                  radial-gradient(900px 500px at 85% 10%, rgba(255,255,255,.04), transparent 60%),
+                  var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      letter-spacing: .2px;
+    }
+
+    a{
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245,245,245,.35);
+    }
+    a:hover{ border-bottom-color: rgba(245,245,245,.75); }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 18px 72px;
+    }
+
+    header{
+      position: relative;
+      padding: 38px 28px;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topline{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .pillrow{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .dot{
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(245,245,245,.75);
+      box-shadow: 0 0 0 4px rgba(245,245,245,.08);
+    }
+
+    h1{
+      margin: 0 0 8px;
+      font-size: clamp(34px, 6vw, 60px);
+      line-height: 1.08;
+      letter-spacing: -0.6px;
+    }
+
+    .subtitle{
+      margin: 0;
+      font-size: clamp(16px, 2.4vw, 20px);
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .meta{
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .meta strong{ color: var(--fg); font-weight: 600; }
+
+    .grid{
+      margin-top: 22px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    .card{
+      grid-column: span 12;
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      padding: 18px 18px 16px;
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: rgba(245,245,245,.9);
+    }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li{ margin: 6px 0; }
+
+    .twoCol{
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+
+    .item{
+      padding: 12px 12px;
+      border: 1px solid rgba(245,245,245,.10);
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .itemTitle{
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin: 0 0 4px;
+    }
+
+    .itemTitle strong{
+      font-weight: 650;
+      color: var(--fg);
+    }
+    .itemTitle span{
+      color: rgba(245,245,245,.62);
+      font-size: 13px;
+    }
+
+    .item p{
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    footer{
+      margin-top: 22px;
+      color: rgba(245,245,245,.55);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Responsive columns */
+    @media (min-width: 820px){
+      .meta{ grid-template-columns: 1.1fr .9fr; }
+      .card.skills{ grid-column: span 6; }
+      .card.languages{ grid-column: span 6; }
+      .card.awards{ grid-column: span 5; }
+      .card.education{ grid-column: span 7; }
+      .card.outside{ grid-column: span 12; }
+      .twoCol{ grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Print-friendly (optional) */
+    @media print{
+      body{ background: #fff; color: #000; }
+      a{ color: #000; border-bottom: 1px solid #000; }
+      header, .card{ box-shadow: none; background: #fff; }
+      .pill{ color: #000; border-color: #000; }
+      .subtitle, .meta, .list, .item p{ color: #111; }
+    }
+  </style>
 </head>
 
-<h1>BANAN!!</h1>
-
 <body>
+  <div class="wrap">
+    <header>
+      <div class="topline">
+        <div class="pillrow">
+          <div class="pill"><span class="dot"></span> Available for opportunities</div>
+          <div class="pill">Based in: Cyprus / Remote</div>
+        </div>
+        <div class="pillrow">
+          <div class="pill"><a href="mailto:you@example.com">you@example.com</a></div>
+          <div class="pill"><a href="https://github.com/yourhandle">github.com/yourhandle</a></div>
+          <div class="pill"><a href="https://www.linkedin.com/in/yourhandle">linkedin.com/in/yourhandle</a></div>
+        </div>
+      </div>
 
+      <h1>Your Name</h1>
+      <p class="subtitle">
+        <strong>Job status:</strong> Student & emerging software engineer / quantitative-minded builder.
+        I value correctness, clarity, and the old virtues: steady workmanship and clean deliverables.
+      </p>
+
+      <div class="meta">
+        <div><strong>Focus:</strong> Software, quantitative analysis, disciplined execution</div>
+        <div><strong>Signature:</strong> Minimal systems, measurable progress, serious standards</div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card skills">
+        <h2>Skills</h2>
+        <ul class="list">
+          <li><strong>Programming:</strong> Python, JavaScript, basic web (HTML/CSS)</li>
+          <li><strong>Quantitative:</strong> problem-solving, modelling, statistics fundamentals</li>
+          <li><strong>Tools:</strong> Git, spreadsheets, documentation, tidy workflows</li>
+          <li><strong>Soft skills:</strong> tutoring, explaining complex ideas with precision</li>
+        </ul>
+      </div>
+
+      <div class="card languages">
+        <h2>Languages</h2>
+        <ul class="list">
+          <li><strong>English:</strong> fluent</li>
+          <li><strong>Russian:</strong> fluent</li>
+          <li><strong>German:</strong> intermediate / working proficiency</li>
+          <li><strong>Greek:</strong> basic (optional)</li>
+        </ul>
+      </div>
+
+      <div class="card awards">
+        <h2>Awards</h2>
+        <div class="twoCol">
+          <div class="item">
+            <div class="itemTitle">
+              <strong>Mathematics Team Selection</strong>
+              <span>Year(s)</span>
+            </div>
+            <p>Selected for a national team / representative programme (replace with your exact detail).</p>
+          </div>
+          <div class="item">
+            <div class="itemTitle">
+              <strong>Competition Participation</strong>
+              <span>Year(s)</span>
+            </div>
+            <p>Olympiad / contest experience; evidence of disciplined problem-solving.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card education">
+        <h2>Education</h2>
+        <div class="item">
+          <div class="itemTitle">
+            <strong>School / Programme Name</strong>
+            <span>YYYY — YYYY</span>
+          </div>
+          <p>
+            Track: Mathematics / Physics / Computer Science (edit to match reality). Notable coursework:
+            calculus, mechanics, electricity, programming.
+          </p>
+        </div>
+        <div class="item" style="margin-top: 12px;">
+          <div class="itemTitle">
+            <strong>Additional Training</strong>
+            <span>YYYY</span>
+          </div>
+          <p>Any structured course, academy, certification, or focused self-study worth mentioning.</p>
+        </div>
+      </div>
+
+      <div class="card outside">
+        <h2>Outside of work</h2>
+        <ul class="list">
+          <li><strong>Sport:</strong> rowing / conditioning (discipline and long-range consistency)</li>
+          <li><strong>Reading:</strong> classic literature, drama, and serious non-fiction</li>
+          <li><strong>Aesthetic interests:</strong> restrained design, black-and-white minimalism</li>
+          <li><strong>Projects:</strong> small tools, automations, and clean personal systems</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Your Name · Built as a static site (fast, simple, durable).
+    </footer>
+  </div>
+
+  <script>
+    // tiny convenience: current year
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
