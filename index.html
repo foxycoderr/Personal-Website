@@ -9,8 +9,8 @@
   <style>
     /* Minimal B/W portfolio — single-file, fast, orrthodox */
     :root{
-      --bg: #0b0b0b;
-      --fg: #f5f5f5;
+      --bg: #243735;
+      --fg: #fffdfd;
       --muted: rgba(245,245,245,.72);
       --hairline: rgba(245,245,245,.14);
       --card: rgba(245,245,245,.04);
@@ -27,7 +27,7 @@
                   radial-gradient(900px 500px at 85% 10%, rgba(255,255,255,.04), transparent 60%),
                   var(--bg);
       color: var(--fg);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font: 16px/1.6 "SF Pro";
       letter-spacing: .2px;
     }
 
@@ -87,7 +87,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(245,245,245,.75);
+      background: rgba(55, 234, 5, 0.75);
       box-shadow: 0 0 0 4px rgba(245,245,245,.08);
     }
 
@@ -100,9 +100,10 @@
 
     .subtitle{
       margin: 0;
-      font-size: clamp(16px, 2.4vw, 20px);
+      font-size: clamp(20px, 2.4vw, 20px);
       color: var(--muted);
       max-width: 70ch;
+      font-weight: lighter;
     }
 
     .meta{
@@ -218,45 +219,40 @@
       <div class="topline">
         <div class="pillrow">
           <div class="pill"><span class="dot"></span> Available for opportunities</div>
-          <div class="pill">Based in: Cyprus / Remote</div>
+          <div class="pill">Based in Cyprus / Remote</div>
         </div>
         <div class="pillrow">
-          <div class="pill"><a href="mailto:you@example.com">you@example.com</a></div>
-          <div class="pill"><a href="https://github.com/yourhandle">github.com/yourhandle</a></div>
+          <div class="pill"><a href="mailto:pb@platonbykov.com">pb@platonbykov.com</a></div>
+          <div class="pill"><a href="https://github.com/foxycoderr">github.com/foxycoderr</a></div>
           <div class="pill"><a href="https://www.linkedin.com/in/yourhandle">linkedin.com/in/yourhandle</a></div>
         </div>
       </div>
 
-      <h1>Your Name</h1>
+      <h1>Platon Bykov</h1>
       <p class="subtitle">
-        <strong>Job status:</strong> Student & emerging software engineer / quantitative-minded builder.
-        I value correctness, clarity, and the old virtues: steady workmanship and clean deliverables.
+        Quantiatively oriented student; looking for part-time and internship opportunities is software development and quantitative analysis positions.
       </p>
-
-      <div class="meta">
-        <div><strong>Focus:</strong> Software, quantitative analysis, disciplined execution</div>
-        <div><strong>Signature:</strong> Minimal systems, measurable progress, serious standards</div>
-      </div>
     </header>
 
     <section class="grid">
       <div class="card skills">
         <h2>Skills</h2>
         <ul class="list">
-          <li><strong>Programming:</strong> Python, JavaScript, basic web (HTML/CSS)</li>
-          <li><strong>Quantitative:</strong> problem-solving, modelling, statistics fundamentals</li>
-          <li><strong>Tools:</strong> Git, spreadsheets, documentation, tidy workflows</li>
-          <li><strong>Soft skills:</strong> tutoring, explaining complex ideas with precision</li>
+          <li><strong>Programming:</strong> Python (chatbots, web apps), Object-oriented C++ </li>
+          <li><strong>Mathematics:</strong> strong foundation in (competitive) problem-solving </li>
+          <li><strong>Soft skills:</strong> tutoring, explaining complex ideas</li>
+          <li><strong>Financial:</strong> fundamental understanding of the financial market, types of instruments</li>
         </ul>
       </div>
 
       <div class="card languages">
         <h2>Languages</h2>
         <ul class="list">
-          <li><strong>English:</strong> fluent</li>
-          <li><strong>Russian:</strong> fluent</li>
-          <li><strong>German:</strong> intermediate / working proficiency</li>
-          <li><strong>Greek:</strong> basic (optional)</li>
+          <li><strong>English:</strong> bilingual</li>
+          <li><strong>Russian:</strong> bilingual</li>
+          <li><strong>German:</strong> fluent (C1)</li>
+          <li><strong>Greek:</strong> conversational</li>
+          <li><strong>French:</strong> basic (A2)</li>
         </ul>
       </div>
 
@@ -265,55 +261,81 @@
         <div class="twoCol">
           <div class="item">
             <div class="itemTitle">
-              <strong>Mathematics Team Selection</strong>
-              <span>Year(s)</span>
+              <strong>(Junior) Balkan Mathematical Olympiad, Bronze Medal</strong>
+              <span>2023</span>
             </div>
-            <p>Selected for a national team / representative programme (replace with your exact detail).</p>
+            <p>As part of the Cyprus National Team. 4.5h competition with 4 problems. </p>
           </div>
           <div class="item">
             <div class="itemTitle">
-              <strong>Competition Participation</strong>
-              <span>Year(s)</span>
+              <strong>Mathematics National Team, Cyprus</strong>
+              <span>'22, '23, '25</span>
             </div>
-            <p>Olympiad / contest experience; evidence of disciplined problem-solving.</p>
+            <p>Selected to be part of the team representing the country at the Balkan Mathematical Olympiad. </p>
+          </div>
+          <div class="item">
+            <div class="itemTitle">
+              <strong>Cyprus National Mathematics Competition, 2nd place</strong>
+              <span>2024</span>
+            </div>
+            <p>3h competition with 4 problems. </p>
+          </div>
+          <div class="item">
+            <div class="itemTitle">
+              <strong>JetBrains Youth Math Challenge, 3rd place</strong>
+              <span>2025</span>
+            </div>
+            <p>4h competitions for teams of 3 students. </p>
           </div>
         </div>
       </div>
 
       <div class="card education">
-        <h2>Education</h2>
+        <h2>Education & Experience</h2>
         <div class="item">
           <div class="itemTitle">
-            <strong>School / Programme Name</strong>
-            <span>YYYY — YYYY</span>
+            <strong>Foley's School</strong>
+            <span>Class of 2027</span>
           </div>
           <p>
-            Track: Mathematics / Physics / Computer Science (edit to match reality). Notable coursework:
-            calculus, mechanics, electricity, programming.
+            Currently studying extended mathematics, chemistry and physics.
           </p>
         </div>
         <div class="item" style="margin-top: 12px;">
           <div class="itemTitle">
-            <strong>Additional Training</strong>
-            <span>YYYY</span>
+            <strong>Moscow School of Programmers</strong>
+            <span>2019-2024</span>
           </div>
-          <p>Any structured course, academy, certification, or focused self-study worth mentioning.</p>
+          <p>Complete computer science course focused on the following.</p>
+          <ul class="list">
+            <li><strong>Application of Python </strong>(i.e., chatbots, web apps, PyQt, PyGame)</li>
+            <li>Problem-solving with object-oriented <strong>C++</strong></li>
+            <li>Blockhain: smart contracts on <strong>Ethereum</strong></li>
+            <li><strong>Machine learning</strong> with Python</li>
+          </ul>
+        </div>
+        <div class="item" style="margin-top: 12px;">
+          <div class="itemTitle">
+            <strong>AuraVisualize (iOS and Web Application Project)</strong>
+            <span>2025</span>
+          </div>
+          <p>
+            Full-stack development of a database-backed performance tracker. Both a web and a Swift-based iOS versions exist.
+          </p>
         </div>
       </div>
 
       <div class="card outside">
-        <h2>Outside of work</h2>
+        <h2>Outside of work & study</h2>
         <ul class="list">
-          <li><strong>Sport:</strong> rowing / conditioning (discipline and long-range consistency)</li>
-          <li><strong>Reading:</strong> classic literature, drama, and serious non-fiction</li>
-          <li><strong>Aesthetic interests:</strong> restrained design, black-and-white minimalism</li>
-          <li><strong>Projects:</strong> small tools, automations, and clean personal systems</li>
+          <li><strong>Competitive Rowing:</strong> recurring member of Cyprus Rowing National Team</li>
+          <li><strong>Tutoring:</strong> sharpening of soft skills, client acquisition</li>
         </ul>
       </div>
     </section>
 
     <footer>
-      © <span id="y"></span> Your Name · Built as a static site (fast, simple, durable).
+      © <span id="y"></span> Platon Bykov
     </footer>
   </div>
 
